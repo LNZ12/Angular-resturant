@@ -12,7 +12,7 @@ export class RecipeService {
         new Ingredient('French Fries', 20)
 
       ]),
-    new Recipe('hamburger', 'tasty', 'https://www.kuechengoetter.de/uploads/media/1800x1200/09/24729-hamburger-zum-selber-bauen.jpg?v=1-0'
+    new Recipe('pancake', 'tasty', 'https://images-gmi-pmc.edge-generalmills.com/edfaaf9f-9bde-426a-8d67-3284e9e496ae.jpg'
       ,
       [new Ingredient('Orange', 2),
         new Ingredient('Apple', 14)
@@ -25,8 +25,12 @@ export class RecipeService {
 
   recipeSelected = new EventEmitter<Recipe>();
 
-  getRecipe(): Recipe[] {
+  getRecipes(): Recipe[] {
     return this.recipes.slice();
+  }
+
+  getRecipe(id: number): Recipe {
+    return this.recipes[id];
   }
 
   addIngredientsToShoppinglist(ingredients: Ingredient[]): void {
